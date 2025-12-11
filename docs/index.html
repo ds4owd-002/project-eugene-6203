@@ -111,7 +111,7 @@ div.csl-indent {
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
-  <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
   <li><a href="#project-description" id="toc-project-description" class="nav-link" data-scroll-target="#project-description">Project Description</a></li>
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
   </ul>
@@ -152,38 +152,52 @@ div.csl-indent {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Access to safe drinking water, sanitation, and hygiene (WASH) services continues to shape public health and development outcomes in Ghana. Tracking these services helps reveal disparities across regions, urban–rural settings, and service levels. The dataset used here draws from the WHO/UNICEF JMP estimates on WASHdata.org, offering standardized and comparable indicators for Ghana. These figures support a clearer understanding of coverage patterns and help inform evidence-based planning in the national WASH sector.</p>
+<div class="justify">
+<p>Access to safe drinking water, sanitation, and hygiene (WASH) services continues to shape public health and development outcomes in Ghana. Tracking these services helps reveal disparities across regions, urban–rural settings, and service levels. The data set used here draws from the WHO/UNICEF JMP estimates on WASHdata.org, offering standardized and comparable indicators for Ghana. These figures support a clearer understanding of coverage patterns and help inform evidence-based planning in the national WASH sector.</p>
+</div>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<p>The dataset used for this work was sourced from the WHO/UNICEF Joint Monitoring Programme (JMP) via WASHdata.org. After downloading the raw files, the data were imported into R for cleaning and preparation. This involved selecting key indicators, removing duplicates or empty entries, and restructuring population and service-level figures into formats suitable for analysis. A new regional classification variable was added to support comparisons across regions and between urban and rural settings. The cleaned dataset was then saved in an organized form and used to generate visualisations and summary statistics. The dataset reflects the standardized procedures of the JMP <span class="citation" data-cites="unicef2024"><span>“WHO/UNICEF JMP WASH Data”</span> (<a href="#ref-unicef2024" role="doc-biblioref">2024</a>)</span>, guided by WHO’s global monitoring framework <span class="citation" data-cites="who2023"><span>“Global Monitoring of Water, Sanitation and Hygiene”</span> (<a href="#ref-who2023" role="doc-biblioref">2023</a>)</span>, and was prepared using reproducible data-analysis practices outlined in <span class="citation" data-cites="rmanual2022">Xie (<a href="#ref-rmanual2022" role="doc-biblioref">2022</a>)</span>.</p>
+<div class="justify">
+<p>The data set used for this work was sourced from the WHO/UNICEF Joint Monitoring Programme (JMP) via WASHdata.org. After downloading the raw files, the data were imported into R for cleaning and preparation. This involved selecting key indicators, removing duplicates or empty entries, and restructuring population and service-level figures into formats suitable for analysis. A new regional classification variable was added to support comparisons across regions and between urban and rural settings. The cleaned dataset was then saved in an organized form and used to generate visualisations and summary statistics. The data set reflects the standardized procedures of the JMP <span class="citation" data-cites="unicef2024"><span>“WHO/UNICEF JMP WASH Data”</span> (<a href="#ref-unicef2024" role="doc-biblioref">2024</a>)</span>, guided by WHO’s global monitoring framework <span class="citation" data-cites="who2023"><span>“Global Monitoring of Water, Sanitation and Hygiene”</span> (<a href="#ref-who2023" role="doc-biblioref">2023</a>)</span>, and was prepared using reproducible data-analysis practices outlined in <span class="citation" data-cites="rmanual2022">Xie (<a href="#ref-rmanual2022" role="doc-biblioref">2022</a>)</span>.</p>
+</div>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<section id="figure-1-coverage-by-service-type" class="level4">
-<h4 class="anchored" data-anchor-id="figure-1-coverage-by-service-type"><strong>Figure 1: Coverage by Service Type</strong></h4>
-<p>This visualisation compares coverage levels across the three core WASH service areas—hygiene, sanitation, and drinking water. The results show that hygiene and sanitation consistently lag behind drinking water, revealing ongoing challenges in achieving broader access.</p>
+<section id="figure-1-coverage-by-the-type-of-service" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1-coverage-by-the-type-of-service"><strong>Figure 1: Coverage by the Type of Service</strong></h4>
+<div class="justify">
+<p>This visualisation compares coverage levels across the three core WASH service areas; hygiene, sanitation, and drinking water. The results show that hygiene and sanitation consistently lag behind drinking water, revealing ongoing challenges in achieving broader access.</p>
+</div>
 </section>
-<section id="figure-2-population-by-residence-type" class="level4">
-<h4 class="anchored" data-anchor-id="figure-2-population-by-residence-type"><strong>Figure 2: Population by Residence Type</strong></h4>
+<section id="figure-2-population-by-the-type-of-residence" class="level4">
+<h4 class="anchored" data-anchor-id="figure-2-population-by-the-type-of-residence"><strong>Figure 2: Population by the Type of Residence</strong></h4>
+<div class="justify">
 <p>The second figure illustrates how the population is distributed across total, rural, and urban residence groups. In many regions, rural populations make up a substantial proportion, underscoring the importance of directing WASH efforts toward rural communities.</p>
+</div>
 </section>
-<section id="table-1-summary-statistics-of-key-variables" class="level4">
-<h4 class="anchored" data-anchor-id="table-1-summary-statistics-of-key-variables"><strong>Table 1: Summary Statistics of Key Variables</strong></h4>
+<section id="table-1-summary-statistics-of-variables" class="level4">
+<h4 class="anchored" data-anchor-id="table-1-summary-statistics-of-variables"><strong>Table 1: Summary Statistics of Variables</strong></h4>
+<div class="justify">
 <p>The table presents descriptive statistics for coverage, population, and service-level classifications. Coverage levels exhibit notable variation, and population counts vary considerably between regions, reflecting uneven demographic distribution</p>
 <p>Table @ref(tab:summary-table) offers an overview of the key WASH indicators and their distribution.</p>
+</div>
 </section>
 </section>
 <section id="conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
-<p>Coverage of hygiene and sanitation services continues to fall behind that of drinking water, highlighting specific areas where efforts and resources are most urgently needed to close gaps. Population distribution also shows considerable variation across regions and between urban and rural settings, with rural communities representing a substantial share of residents in many areas. The structured, processed dataset provides a solid foundation for both visual exploration and statistical analysis of key WASH indicators, enabling a more nuanced understanding of service coverage and population needs. Overall, these findings underscore the importance of evidence-based, targeted planning and intervention to enhance equity and access to WASH services across all regions.</p>
+<div class="justify">
+<p>Coverage of hygiene and sanitation services continues to fall behind that of drinking water, highlighting specific areas where efforts and resources are most urgently needed to close gaps. Population distribution also shows considerable variation across regions and between urban and rural settings, with rural communities representing a substantial share of residents in many areas. The structured, processed data set provides a solid foundation for both visual exploration and statistical analysis of key WASH indicators, enabling a more nuanced understanding of service coverage and population needs. Overall, these findings underscore the importance of evidence-based, targeted planning and intervention to enhance equity and access to WASH services across all regions.</p>
+</div>
 </section>
-<section id="appendices" class="level2">
-<h2 class="anchored" data-anchor-id="appendices">Appendices</h2>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
 </section>
 <section id="project-description" class="level2">
 <h2 class="anchored" data-anchor-id="project-description">Project Description</h2>
-<p>This project examines Ghana’s water, sanitation, and hygiene (WASH) landscape using standardized estimates from the WHO/UNICEF Joint Monitoring Programme (JMP). Data obtained from WASHdata.org were cleaned, structured, and analysed in R to explore coverage levels and population distributions across regions and residence types. The processed dataset supports clear visualisations and statistical summaries that highlight patterns in drinking water, sanitation, and hygiene services. The goal is to provide an evidence-based snapshot of national WASH performance to inform planning, equity assessments, and sector decision-making.</p>
+<div class="justify">
+<p>This project examines Ghana’s water, sanitation, and hygiene (WASH) landscape using standardized estimates from the WHO/UNICEF Joint Monitoring Programme (JMP). Data obtained from WASHdata.org were cleaned, structured, and analysed in R to explore coverage levels and population distributions across regions and residence types. The processed data set supports clear visualisations and statistical summaries that highlight patterns in drinking water, sanitation, and hygiene services. The goal is to provide an evidence-based snapshot of national WASH performance to inform planning, equity assessments, and sector decision-making.</p>
+</div>
 </section>
 <section id="import" class="level2">
 <h2 class="anchored" data-anchor-id="import">Import</h2>
@@ -404,26 +418,20 @@ dbl (2): coverage, population
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Visualisation – Population by Residence Type</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordered 1 to 13</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>processed_data <span class="ot">&lt;-</span> processed_data <span class="sc">%&gt;%</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Region =</span> <span class="fu">factor</span>(Region, <span class="at">levels =</span> <span class="fu">paste0</span>(<span class="st">"Region "</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>)))</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Visualisation 2 – Population by Region</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(processed_data, <span class="fu">aes</span>(<span class="at">x =</span> Region, <span class="at">y =</span> population<span class="sc">/</span><span class="fl">1e6</span>, <span class="at">fill =</span> service_level)) <span class="sc">+</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Regions"</span>,</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Population (M)"</span>,</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Service Level"</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Visualisation 2 – Population by Region</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(processed_data, <span class="fu">aes</span>(<span class="at">x =</span> Region, <span class="at">y =</span> population<span class="sc">/</span><span class="fl">1e6</span>, <span class="at">fill =</span> service_level)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Regions"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Population (M)"</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Service Level"</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
 (`geom_col()`).</code></pre>
