@@ -10,8 +10,136 @@ editor: visual
 
 ```{r}
 library(tidyverse)
+library(here)
+library(readxl)
 ```
 
 ```{r}
-read_csv(here::here("data/raw/your-file-name.csv"))
+library(readxl)
+read_excel(here::here("data/raw/ProjectData.xlsx"))
+
+library(tibble)
+library(dplyr)
+library(readr)
+library(here)
+
+
+processed_data <- tibble(
+  country = c(
+    rep("Ghana", 39)
+  ),
+  service_type = c(
+    "Hygiene","Hygiene","Hygiene","Sanitation","Sanitation","Sanitation",
+    "Drinking water","Drinking water","Drinking water","Hygiene","Hygiene","Hygiene",
+    "Sanitation","Sanitation","Sanitation","Drinking water","Drinking water","Drinking water",
+    "Hygiene","Hygiene","Hygiene","Sanitation","Sanitation","Sanitation",
+    "Drinking water","Drinking water","Drinking water","Sanitation","Sanitation","Sanitation",
+    "Drinking water","Drinking water","Drinking water","Sanitation","Sanitation","Sanitation",
+    "Drinking water","Drinking water","Drinking water"
+  ),
+  
+  coverage = c(
+    45.48,31.31,54.99,12.82,2.99,19.40,46.98,59.11,38.84,44.86,56.98,36.73,
+    41.55,31.36,48.39,4.48,9.78,0.92,9.66,11.72,8.28,17.79,30.76,9.10,
+    4.22,10.51,0.00,18.76,20.44,17.64,42.94,17.16,60.23,9.07,14.45,5.47,
+    1.38,3.44,0.00
+  ),
+  population = c(
+    15658992,4327143,11331848,4412014,413732,3998282,16174213,8170136,8004077,
+    15442597,7874851,7567745,14305984,4334764,9971219,1541579,1351057,190522,
+    3325825,1619234,1706592,6126340,4250777,1875563,1452437,1452437,NA,6459799,
+    2825133,3634665,14783610,2372024,12411585,3123277,1996823,1126455,475575,475576,NA
+  ),
+  residence_type = c(
+    "total","rural","urban","total","rural","urban",
+    "total","rural","urban","total","rural","urban",
+    "total","rural","urban","total","rural","urban",
+    "total","rural","urban","total","rural","urban",
+    "total","rural","urban","total","rural","urban",
+    "total","rural","urban","total","rural","urban",
+    "total","rural","urban"
+  ),
+  service_level = c(
+    "Basic service","Basic service","Basic service","Basic service","Basic service","Basic service",
+    "Basic service","Basic service","Basic service","Limited service","Limited service","Limited service",
+    "Limited service","Limited service","Limited service","Limited service","Limited service","Limited service",
+    "No handwashing facility","No handwashing facility","No handwashing facility","Open defecation","Open defecation","Open defecation",
+    "Surface water","Surface water","Surface water","Safely managed service","Safely managed service","Safely managed service",
+    "Safely managed service","Safely managed service","Safely managed service","Unimproved","Unimproved","Unimproved",
+    "Unimproved","Unimproved","Unimproved"
+  ),
+  Region = rep(paste0("Region ", 1:13), each = 3),
+  Region_description = rep(NA, 39)
+)
+
+processed_data <- processed_data %>%
+  select(service_type, coverage, population, residence_type, service_level, Region)
+
+print(processed_data)
+
+write_csv(processed_data,
+          here::here("data/processed/processed_service_dataset.csv"))
+
+# data manipulation
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(scales)
+library(readr)
+library(here)
+
+processed_data <- read_csv(here::here("data/processed/processed_service_dataset.csv"))
+
+# Summary Statistics Table
+summary_table <- processed_data %>%
+  summarise(
+    mean_coverage = mean(coverage, na.rm = TRUE),
+    median_coverage = median(coverage, na.rm = TRUE),
+    sd_coverage = sd(coverage, na.rm = TRUE),
+    total_population = sum(population, na.rm = TRUE),
+    n_regions = n_distinct(Region)
+  )
+
+kable(summary_table,
+      caption = "Summary statistics of key WASH variables.",
+      booktabs = TRUE) %>%
+  kable_styling(full_width = FALSE)
+
+
+
+# Data Visualisation 1 – Coverage by Service Type
+ggplot(processed_data, aes(x = service_type, y = coverage, fill = service_level)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 1), width = 0.8) +
+  labs(
+    x = "Service Type",
+    y = "Coverage (%)",
+    fill = "Service Level"
+  ) +
+  scale_y_continuous(labels = function(x) paste0(x, "%")) +
+  theme_minimal(base_size = 15) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "right"
+  )
+
+# Data Visualisation – Population by Residence Type
+# Ordered 1 to 13
+processed_data <- processed_data %>%
+  mutate(Region = factor(Region, levels = paste0("Region ", 1:13)))
+
+
+# Data Visualisation 2 – Population by Region
+ggplot(processed_data, aes(x = Region, y = population/1e6, fill = service_level)) +
+  geom_col(position = "stack") +
+  labs(
+    x = "Regions",
+    y = "Population (M)",
+    fill = "Service Level"
+  ) +
+  scale_y_continuous(labels = scales::comma) +
+  theme_light(base_size = 15) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "right"
+  )
 ```
