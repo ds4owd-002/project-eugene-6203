@@ -1,10 +1,83 @@
 ---
-title: "Project Documentation"
-format: html
+title: "Eugene's Project Documentation"
 editor: visual
+author: "Eugene Appiah-Effah"
+date: "`r Sys.Date()`"
+table-of-contents: true
+bibliography: bibliography.bib
+
+format:
+  html:
+    css: justify.css
+
+output:
+  html_document:
+    df_print: paged
+    toc: true
+    number_sections: true
 ---
 
+## Introduction
+
+::: {.justify}
+
+Access to safe drinking water, sanitation, and hygiene (WASH) services continues to shape public health and development outcomes in Ghana. Tracking these services helps reveal disparities across regions, urban–rural settings, and service levels. The data set used here draws from the WHO/UNICEF JMP estimates on WASHdata.org, offering standardized and comparable indicators for Ghana. These figures support a clearer understanding of coverage patterns and help inform evidence-based planning in the national WASH sector.
+
+:::
+
+## Methods
+
+::: {.justify}
+
+The data set used for this work was sourced from the WHO/UNICEF Joint Monitoring Programme (JMP) via WASHdata.org. After downloading the raw files, the data were imported into R for cleaning and preparation. This involved selecting key indicators, removing duplicates or empty entries, and restructuring population and service-level figures into formats suitable for analysis. A new regional classification variable was added to support comparisons across regions and between urban and rural settings. The cleaned dataset was then saved in an organized form and used to generate visualisations and summary statistics. The data set reflects the standardized procedures of the JMP @unicef2024, guided by WHO’s global monitoring framework @who2023, and was prepared using reproducible data-analysis practices outlined in @rmanual2022.
+
+:::
+
+## Results
+
+#### **Figure 1: Coverage by the Type of Service**
+
+::: {.justify}
+
+This visualisation compares coverage levels across the three core WASH service areas; hygiene, sanitation, and drinking water. The results show that hygiene and sanitation consistently lag behind drinking water, revealing ongoing challenges in achieving broader access.
+
+:::
+
+#### **Figure 2: Population by the Type of Residence**
+
+::: {.justify}
+
+The second figure illustrates how the population is distributed across total, rural, and urban residence groups. In many regions, rural populations make up a substantial proportion, underscoring the importance of directing WASH efforts toward rural communities.
+
+:::
+
+#### **Table 1: Summary Statistics of Variables**
+
+::: {.justify}
+
+The table presents descriptive statistics for coverage, population, and service-level classifications. Coverage levels exhibit notable variation, and population counts vary considerably between regions, reflecting uneven demographic distribution
+
+Table \@ref(tab:summary-table) offers an overview of the key WASH indicators and their distribution.
+
+:::
+
+## Conclusions
+
+::: {.justify}
+
+Coverage of hygiene and sanitation services continues to fall behind that of drinking water, highlighting specific areas where efforts and resources are most urgently needed to close gaps. Population distribution also shows considerable variation across regions and between urban and rural settings, with rural communities representing a substantial share of residents in many areas. The structured, processed data set provides a solid foundation for both visual exploration and statistical analysis of key WASH indicators, enabling a more nuanced understanding of service coverage and population needs. Overall, these findings underscore the importance of evidence-based, targeted planning and intervention to enhance equity and access to WASH services across all regions.
+
+:::
+
+## Appendix
+
 ## Project Description
+
+::: {.justify}
+
+This project examines Ghana’s water, sanitation, and hygiene (WASH) landscape using standardized estimates from the WHO/UNICEF Joint Monitoring Programme (JMP). Data obtained from WASHdata.org were cleaned, structured, and analysed in R to explore coverage levels and population distributions across regions and residence types. The processed data set supports clear visualisations and statistical summaries that highlight patterns in drinking water, sanitation, and hygiene services. The goal is to provide an evidence-based snapshot of national WASH performance to inform planning, equity assessments, and sector decision-making.
+
+:::
 
 ## Import
 
@@ -22,7 +95,6 @@ library(tibble)
 library(dplyr)
 library(readr)
 library(here)
-
 
 processed_data <- tibble(
   country = c(
@@ -93,9 +165,9 @@ processed_data <- read_csv(here::here("data/processed/processed_service_dataset.
 # Summary Statistics Table
 summary_table <- processed_data %>%
   summarise(
-    mean_coverage = mean(coverage, na.rm = TRUE),
+    mean_coverage = round(mean(coverage, na.rm = TRUE), 2),
     median_coverage = median(coverage, na.rm = TRUE),
-    sd_coverage = sd(coverage, na.rm = TRUE),
+    sd_coverage = round(sd(coverage, na.rm = TRUE), 2),
     total_population = sum(population, na.rm = TRUE),
     n_regions = n_distinct(Region)
   )
@@ -121,12 +193,6 @@ ggplot(processed_data, aes(x = service_type, y = coverage, fill = service_level)
     axis.text.x = element_text(angle = 45, hjust = 1),
     legend.position = "right"
   )
-
-# Data Visualisation – Population by Residence Type
-# Ordered 1 to 13
-processed_data <- processed_data %>%
-  mutate(Region = factor(Region, levels = paste0("Region ", 1:13)))
-
 
 # Data Visualisation 2 – Population by Region
 ggplot(processed_data, aes(x = Region, y = population/1e6, fill = service_level)) +
